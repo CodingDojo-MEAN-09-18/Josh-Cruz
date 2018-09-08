@@ -21,20 +21,20 @@ function Ninja(name) {
     this.name = name;
     this.health = 100;
     this.sayName = () => {
-        console.log("My Ninja Name is " + this.name);
+        console.log('My Ninja Name is ' + this.name);
         return this;
-    }
+    };
     this.showStats = () => {
-        console.log("Name: ", this.name);
-        console.log("Health: ", this.health);
-        console.log("Speed: ", speed);
-        console.log("Strength: ", strength);
+        console.log('Name: ', this.name);
+        console.log('Health: ', this.health);
+        console.log('Speed: ', speed);
+        console.log('Strength: ', strength);
         return this;
-    }
+    };
     this.drinkSake = () => {
         this.health += 10;
-        console.log("added 10 health")
+        console.log('added 10 health');
         return this;
-    }
+    };
     
 }
