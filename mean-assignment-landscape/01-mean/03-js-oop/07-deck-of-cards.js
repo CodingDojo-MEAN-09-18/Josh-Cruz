@@ -32,8 +32,8 @@ class Deck {
         }
     }
 
-    function shuffle(array) {
-    var random = array.map(Math.random);
+    shuffle(array) {
+        var random = array.map(Math.random);
         array.sort(function (a, b) {
             return random[a] - random[b];
         });
