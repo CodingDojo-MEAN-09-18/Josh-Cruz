@@ -1,0 +1,21 @@
+body{
+    margin:1em;
+    padding: 1em;
+    background-color: rgb(128, 175, 236);
+}
+body > * {
+    margin:1em;
+    padding: 1em;
+    background-color: rgb(128, 175, 236);
+}
+
+.container {
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(250px, 2fr));
+}
+
+img {
+  width: 100% ;
+  height: auto ;
+}
