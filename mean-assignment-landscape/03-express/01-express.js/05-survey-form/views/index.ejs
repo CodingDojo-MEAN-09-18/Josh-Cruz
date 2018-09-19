@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Counter</title>
+</head>
+<body style="display:flex; flex-direction:column; align-content:center; justify-content:center; background-color:darkseagreen;  border: 1px solid black;">
+    <div style="display:flex; flex-direction:column; align-content:center; justify-content:center;">
+        <form action="/process" method="POST">
+                <label for="name">Your Name:</label>
+                <input type="text" name="name" placeholder=" Full Name">
+                <label for="location">Dojo Location</label>
+                <select name="location" >
+                    <option value="Seatle">Seatle</option>
+                    <option value="Chicago">Chicago</option>
+                    <option value="San Francisco">San Francisco</option>
+                    <option value="online">Online Bootcamp</option>
+                </select>
+                <label for="comment">Comments (optional):</label>
+                <input type="text" name="comments" id="">
+                <button type="submit">Submit</button>
+
+        </form>
+    </div>
+
+    
+</body>
+</html>
