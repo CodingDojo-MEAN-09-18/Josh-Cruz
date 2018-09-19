@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Counter</title>
+</head>
+<body style="display:flex; flex-direction:column; align-content:center; justify-content:center; background-color:darkseagreen;">
+    <div style="display:flex; flex-direction:column; align-content:center; justify-content:center;" >
+        <h1 >Counter</h1>
+    <h1><%= counter %></h1>
+    </div>
+    <div style="display:flex; justify-content:space-evenly; align-content: center;">
+        <form action="/plus2" method="POST">
+        <button type="submit" name="plus2" value="plus2" style="background-color: yellow; border: 1px solid black;"><h1> +2! </h1> </button>
+        </form>
+        <form action="/reset" method="POST" style="background-color:white; border: 1px solid black;">
+            <button type="submit" name="reset" value="reset"> <h1>Reset The Counter!</h1></button>
+        </form>
+    </div>
+
+    
+</body>
+</html>
