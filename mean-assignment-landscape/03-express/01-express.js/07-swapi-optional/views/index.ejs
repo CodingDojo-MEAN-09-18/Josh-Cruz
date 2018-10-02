@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Counter</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body style="display:flex; flex-direction:column; align-content:center; justify-content:center; background-color:darkseagreen;  border: 1px solid black;">
+    <div style="display:flex; flex-direction:column; align-content:center; justify-content:center;">
+       
+    <h1>Star Wars Wiki</h1>
+    <h2>What would you like to know more about?</h2>
+    </div>
+        
+<div style="display:inline-flex;">
+    <ul class= "list" > <h2>people:</h2>
+    
+    </ul>
+
+    <ul class="planlist"> <h2>planets:</h2>
+
+    </ul>
+  
+<!-- </div>
+<div style="display:inline-block;">
+    <form action="/prev" method="post">
+        <button type="submit" id="prev10" name="prev" value="prev" style="flex-basis: 3em; width:5em;">Previous 10
+            Names</button>
+    </form>
+
+    <form action="/people" method="get">
+        <button type="submit" id="next10" name="next" value="next" style="flex-basis: 3em; width:5em;">Next 10 Names
+        </button>
+    </form>
+</div > -->
+        </div style="display:flex;"  >
+        
+         
+            <button id="peopleBtn" style="flex-basis: 3em; width:15em; margin-top: 5em;" name="people" >People</button>
+            
+            <button id="planetsBtn" style="flex-basis: 3em; width:15em;">Planets</button>
+            
+           
+        
+        </div>
+<script>
+    $(document).ready(function () {
+        $('#peopleBtn').click(function () {
+            $.get('/people', function (data) {
+                data.forEach((data)=>{
+                    $(".list").append( "<li>" + data.name + "</li>");
+                });
+            }, 'json');
+
+        });
+        $('#planetsBtn').click(function () {
+            $.get('/planets', function (data) {
+                data.forEach((data)=>{
+                    $(".planlist").append( "<li>" + data.name + "</li>");
+                });
+            }, 'json');
+
+        });
+        $('#next10').click(function () {
+            $.get('/people', function (data) {
+                data.forEach((data) => {
+                    $(".list").append("<li>" + data.name + "</li>");
+                });
+            }, 'json');
+
+        });
+
+
+ });
+   
+</script>
+ 
+    
+</body>
+</html>
