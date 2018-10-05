@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+
+    <title>Counter</title>
+</head>
+
+<body style="display:flex; flex-direction:column; align-content:center; justify-content:center; background-color:rgb(199, 199, 199);  border: 1px solid black;">
+    <div class="container">
+        <h1>Welco0me TO tHe Great Number Game</h1>
+        <h2>The Button Has Been CLicked <div id="num">0</div> times</h2>
+        <button id="click">CLick ME TO Play!</button>
+        <button id="reset">RESET</button>
+    </div>
+
+
+    <script type="text/javascript">
+        var socket = io.connect();
+
+        $('#click').click(function() {
+            socket.emit("plus_one");
+            console.log ('f.e. plus 1 clicked');
+        });
+
+        $('#reset').click(function() {
+            socket.emit("clear_num");
+            console.log('f.e. reset clicked');
+        });
+
+        socket.on("updated_number", function(number){
+            console.log(number);
+            $('#num').text(number);
+        });
+    </script>
+</body>
+
+</html>
