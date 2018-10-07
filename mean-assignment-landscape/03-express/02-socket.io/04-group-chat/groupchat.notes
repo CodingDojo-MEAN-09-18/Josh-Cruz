@@ -1,0 +1,20 @@
+
+
+Notes:
+
+
+  #SERVER#  1. Write server.js and have it render the "/" page
+                - create a text box 
+-= Copnnecting a user =-
+  (CLient) 2. Write a JS prompt that saves the username as a var
+   (CLient) 3. Send a emit named "user_connected" to the server
+  #SERVER# 4. listen for "user_connected" and  
+                - add that user to an array of user objects 
+                - emit "new_user" to all users sending the array of objects "user.name" 
+   (CLient) 5. listen for "new_user" show that user is connected in the page
+
+--- Sending A Message ---
+    (CLient) 6. when the user clicks the enter key or send button emit to server a "new_message" with the messgae text  and user name attached
+    7. listen for"new_message" and io.broadcast "add_message" the message back to everyone with name
+    8. listen for "add_message" and write the data onto the chat screen 
+
