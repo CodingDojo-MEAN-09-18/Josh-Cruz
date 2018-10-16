@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/sandstone/bootstrap.min.css" rel="stylesheet" integrity="sha384-CfCAYEgrdtRrpvjGKxoaRy5ge1ggMbxNSpEkY+XqdfdRTUkRrYZVB2z99E7BsEDZ"
+    crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+
+    <title>Group Chat</title>
+</head>
+
+<body style="display:flex; flex-direction:column; align-content:center; justify-content:center; background-color:linen; ">
+
+    <div class="container" style="display:inline-flex;">
+        <h1>Welcome To Quoting DOJO</h1>
+        <!-- tip to easily see objects printed in full instead of [object Object] -->
+        <%- JSON.stringify(messages) %>
+        <!-- based on the structure of your messages, determine how to display them -->
+        <% if(messages.registration) { %>
+        <% for (var x of messages.registration) { %>
+        <h3>
+          <%= x %>
+        </h3>
+        <% } %>
+        <% } %>
+        <br>
+        <form action="/process" method="POST" id="sendMessage">
+            <label for="name">Your Name:</label>
+            <input type="text" name="name" id="addname" style="width:50%; margin-top:5px;">
+            <label for="name">Your quote:</label>
+            <input type="text" name="quote" id="addquote" style="width:50%; height:25%; margin-top:5px;">
+            <button type="submit" id="submit">Add Some Wisdom!</button>
+            <button id="skip_form">Skip To The Quotes</button>
+        </form>
+    </div>
+
+
+    <script type="text/javascript">
+
+        var socket = io.connect();
+
+        $('#sendMessage').submit(function() {
+            socket.emit("new_message");
+            console.log('newmsg msg sent');
+        });
+
+
+    </script>
+</body>
+
+</html>
