@@ -1,3 +1,7 @@
+// const User = require('mongoose').model( 'User' );
+
+const User = require("../models/quote")
+
 module.exports = {
   index: function (req, res) {
     res.render('index');

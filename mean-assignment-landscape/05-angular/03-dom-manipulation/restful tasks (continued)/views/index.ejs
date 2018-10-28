@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/sandstone/bootstrap.min.css" rel="stylesheet" integrity="sha384-CfCAYEgrdtRrpvjGKxoaRy5ge1ggMbxNSpEkY+XqdfdRTUkRrYZVB2z99E7BsEDZ"
+    crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+
+    <title>Group Chat</title>
+</head>
+
+<body style="display:flex; flex-direction:column; align-content:center; justify-content:center; background-color:rgb(117, 186, 255); ">
+
+    <div class="container" style="display:grid; grid-template-columns: 1fr auto; margin-top: 3em;">
+        <h1>Tasks</h1>
+        <br>
+        <!-- tip to easily see objects printed in full instead of [object Object] -->
+        <%- JSON.stringify(messages) %>
+        <!-- based on the structure of your messages, determine how to display them -->
+        <% if(messages.registration) { %>
+        <% for (var x of messages.registration) { %>
+        <h3>
+          <%= x %>
+        </h3>
+        <% } %>
+        <% } %>
+        <br>
+        <form action="/process" method="POST" id="sendMessage">
+            <label for="title">Your Task Title:</label>
+            <input type="text" name="title" id="title" style="width:50%; height:25%; margin-top:5px;">
+            <br>
+            <label for="description">Describe Your Task:</label>
+            <input type="text" name="description" id="addDescription" style="width:50%; margin-top:5px;">
+            <br>
+            <br>
+            <button type="submit" id="submit">Add A Task</button>
+            <button id="skip_form">See all Tasks</button>
+        </form>
+    </div>
+</body>
+
+</html>

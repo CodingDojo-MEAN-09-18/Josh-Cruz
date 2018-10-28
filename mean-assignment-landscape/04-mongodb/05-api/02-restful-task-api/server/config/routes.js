@@ -4,6 +4,8 @@ const tasks = require('../controllers/tasks');
 User = mongoose.model('Task');
 
 module.exports = function(app) {
+
+
   // // Root Request
   // app.get('/', function(req, res) {
   //   tasks.index(req, res);
@@ -23,7 +25,7 @@ module.exports = function(app) {
   app.get('/tasks', tasks.index);
 
   //Adds a New Task
-  app.post('/tasks', tasks.create);
+  app.post('/api/tasks', tasks.create);
 
   //Find one task with id
   app.get('/tasks/:id', tasks.show);
@@ -33,5 +35,9 @@ module.exports = function(app) {
 
   //Find and delete one task with id
   app.delete('/tasks/:id', tasks.delete );
+
+  app.all('*', (req, res, next) => {
+    res.sendFile(path.resolve('./public/dist/public/index.html'));
+  });
 
 };

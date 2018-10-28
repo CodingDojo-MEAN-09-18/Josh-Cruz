@@ -1,15 +1,17 @@
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var session = require('express-session');
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const session = require('express-session');
 const server = app.listen(8000);
 const io = require('socket.io')(server);
 const flash = require('express-flash');
 
+require('./server/config/database');
+
 app.use(flash());
 app.use(bodyParser.urlencoded({ extended: true }));
-var path = require('path');
+const path = require('path');
 app.use(express.static(path.join(__dirname, './static')));
 app.use(
   session({
@@ -21,42 +23,16 @@ app.use(
 );
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
-mongoose.connect(
-  'mongodb://localhost/quoting_dojo',
-  { useNewUrlParser: true }
-);
-mongoose.Promise = global.Promise;
-
-// Routes
-var QuoteSchema = new mongoose.Schema(
-  {
-    quote: { type: String, required: true, minlength: 5 },
-  },
-  { timestamps: true }
-);
-
-var UserSchema = new mongoose.Schema(
-  {
-    name: { type: String, required: true, minlength: 4 },
-    quotes: [
-      {
-        quote: {
-          type: String,
-          required: true,
-          minlength: 6,
-        },
-        createdAt: Number,
-      },
-    ],
-    // quotes: [QuoteSchema],
-  },
-  { timestamps: true }
-);
-
-mongoose.model('User', UserSchema);
-var User = mongoose.model('User');
 
 require('./server/config/routes')(app);
+
+
+
+
+// Routes
+
+// mongoose.model('User', UserSchema);
+// var User = mongoose.model('User');
 
 // // Root Request
 // app.get('/', function(req, res) {
@@ -86,36 +62,36 @@ require('./server/config/routes')(app);
 //     }
 //   );
 
-  //   wisdom.push({ name: user.name, quote: user.quote });
-  //  console.log('wisdom array: ' + wisdom);
-  //   res.render('wall', { users: wisdom });
+//   wisdom.push({ name: user.name, quote: user.quote });
+//  console.log('wisdom array: ' + wisdom);
+//   res.render('wall', { users: wisdom });
 
-  // try {
-  //   User.find({ name: user.name }, function (err, user){
-  //     user.quote.push({ quote: user.quote });
-  //     user.save(function (err) {
-  //     });
-  //   });
-  //   console.log('user:' + user);
-  //   wisdom.push({ name: user.name, quote: user.quote });
-  //   console.log('wisdom array: ' + wisdom );
-  //   res.render('wall', { users: wisdom });
-  // } catch (error) {
-  //   user.save(function(error) {
-  //     if (error) {
-  //     console.log('something went wrong');
-  //       for (var key in error.errors) {
-  //         req.flash('registration',error.errors[key].message);
-  //       };
-  //     res.redirect('/');
-  //   } else {
-  //     console.log('successfully added a user!');
-  //       wisdom.push({ name: user.name, quote: user.quote });
-  //       console.log('wisdom array: ' + wisdom);
-  //       res.render('wall', { users: wisdom });
-  //     };
-  //   });
-  // }
+// try {
+//   User.find({ name: user.name }, function (err, user){
+//     user.quote.push({ quote: user.quote });
+//     user.save(function (err) {
+//     });
+//   });
+//   console.log('user:' + user);
+//   wisdom.push({ name: user.name, quote: user.quote });
+//   console.log('wisdom array: ' + wisdom );
+//   res.render('wall', { users: wisdom });
+// } catch (error) {
+//   user.save(function(error) {
+//     if (error) {
+//     console.log('something went wrong');
+//       for (var key in error.errors) {
+//         req.flash('registration',error.errors[key].message);
+//       };
+//     res.redirect('/');
+//   } else {
+//     console.log('successfully added a user!');
+//       wisdom.push({ name: user.name, quote: user.quote });
+//       console.log('wisdom array: ' + wisdom);
+//       res.render('wall', { users: wisdom });
+//     };
+//   });
+// }
 // });
 
 // app.get('/wall', function(req, res) {

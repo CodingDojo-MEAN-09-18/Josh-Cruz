@@ -19,7 +19,7 @@
 // counter()     // this will console.log "2"
 // counter()     // this will console.log "3"
 // counter()     // this will console.log "4"
-// // So that means that the count variable still exists! 
+// // So that means that the count variable still exists!
 // // and it is being changed even though we aren't inside of the Outer function!
 // // What if we try to access count out here?
 // console.log(count) // doesn't work!
@@ -28,10 +28,19 @@
 
 
 function fib() {
-        var i = 1;
+        let i;
+        let j;
+        let sum = 0;
         function nacci() {
-            i += i;
-            console.log(i);
+          if (!i){
+            i = 1;
+          } else {
+            j = sum;
+            console.log ('adding:' + i  + ' ' + '+ ' + j);
+            sum = i + j;
+            console.log('answer:' + sum);
+            i = j;
+          }
         }
    return nacci;
 
@@ -39,6 +48,12 @@ function fib() {
 var fibCounter = fib();
 
 console.log(fibCounter);
+fibCounter();
+fibCounter();
+fibCounter();
+fibCounter();
+fibCounter();
+fibCounter();
 fibCounter();
 fibCounter();
 fibCounter();

@@ -52,8 +52,10 @@ io.sockets.on('connection', function (socket) {
     });
 
     socket.on('new_message', function (name, message) {
-        let msg_info ={user: name,
-             message: message };
+        let msg_info = {
+            user: name,
+            message: message };
+            
         msg_history.push(msg_info);
         console.log(msg_info);
         io.sockets.emit('add_message', msg_info);

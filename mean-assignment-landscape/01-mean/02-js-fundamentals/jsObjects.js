@@ -36,7 +36,7 @@ for (const key in users) {
     const first_name = users[key][i].first_name;
     const last_name = users[key][i].last_name;
     const length = first_name.length + last_name.length;
-    console.log( (i +1) + ' ' + last_name + ' ' + first_name + ' - '+length);
+    console.log( (i + 1) + ' ' + last_name + ' ' + first_name + ' - '+ length);
 
   }
 }
