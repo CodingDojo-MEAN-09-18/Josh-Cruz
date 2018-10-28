@@ -37,8 +37,9 @@
 
       <br><br>
       <div class="row">
-        <ul class="list-group" *ngFor="let index of tasks">
-          <li class="list-group-item" *ngFor="let task of tasks">{{task.title }} <br> {{task.description }}</li>
+
+        <ul class="list-group" *ngFor="let task of tasks">
+          <li class="list-group-item" >{{task.title }} <br> {{task.description }}</li>
         </ul>
       </div>
 

@@ -23,8 +23,12 @@ export class AppComponent {
   displayTasks() {
     this.taskService.getAllTasks().subscribe(
       (response) => {
-      console.log("respoinse was: " + response);
-      this.tasks.concat(response);
+        // const res = JSON.stringify(response)
+      console.log('respoinse was: ' + response);
+      response.forEach(element => {
+      this.tasks.push(element)
+      });
+      console.log('tasks arr: ' + this.tasks);
 
     },
       (error) => console.log(error)
