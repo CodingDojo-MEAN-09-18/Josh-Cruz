@@ -5,22 +5,6 @@ User = mongoose.model('Task');
 
 module.exports = function(app) {
 
-
-  // // Root Request
-  // app.get('/', function(req, res) {
-  //   tasks.index(req, res);
-  // });
-
-  // // Add User Request
-  // app.post('/process', function(req, res) {
-  //   tasks.createOrUpdate(req, res);
-  // });
-
-  // //Display Content
-  // app.get('/wall', function(req, res) {
-  //   tasks.display(req, res);
-  // });
-
   // Shows All Tasks
   app.get('/api/tasks', tasks.index);
 

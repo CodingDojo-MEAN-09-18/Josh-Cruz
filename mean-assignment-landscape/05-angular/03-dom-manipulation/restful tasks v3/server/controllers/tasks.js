@@ -19,7 +19,8 @@ module.exports = {
       .catch(console.log);
   },
   update(req, res) {
-    Task.findByIdAndUpdate(req.params.id, req.body)
+
+    Task.findByIdAndUpdate(req.params.id, req.body, { new : true })
       .then(task => res.json(task))
       .catch(console.log);
   },
