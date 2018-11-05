@@ -1,0 +1,29 @@
+<div class="home">
+  <h1> Pet Shelter </h1>
+  <img src="../../assets/img/20121107-132652-3936.png">
+  <h2> These Pets Are Looking For A Home! </h2>
+</div>
+<div class="row">
+  <button class="btn btn-primary" [routerLink]="['new']">Add a pet to the shelter</button>
+</div>
+<div class="row" >
+  <table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let Pet of Pets">
+      <tr>
+        <th scope="row">{{Pet.name }}</th>
+        <td>{{Pet.type}}</td>
+        <td>
+          <button class="btn btn-primary" (click)="showDescription(Pet)" [routerLink]="['/pets', Pet._id]" >Details</button>
+          <button type="button" class="btn btn-warning" [routerLink]="['/pets', Pet._id, 'edit']" > Update Pet</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

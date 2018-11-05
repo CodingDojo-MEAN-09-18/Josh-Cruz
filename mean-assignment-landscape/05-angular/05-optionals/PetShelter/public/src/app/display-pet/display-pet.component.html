@@ -1,0 +1,22 @@
+<a class="home" [routerLink]="['/pets']" style="float: right;">Home</a>
+<section >
+
+  <h1>Pet Information</h1>
+  <p> <span class="label">ID: </span> {{selectedPet?._id}} </p>
+  <p> <span class="label">name:</span> {{this.selectedPet?.name}} </p>
+  <p> <span class="label">Description:</span> {{selectedPet?.description}} </p>
+  <p> <span class="label">SKills:</span>  </p>
+  <ul>
+    <li>{{selectedPet.skills[0].skill}}</li>
+    <li>{{selectedPet.skills[1].skill}}</li>
+    <li>{{selectedPet.skills[2].skill}}</li>
+
+  </ul>
+
+  <div class="PetButtons">
+    <button type="button" class="btn btn-primary" (click)="onAdoptPet()"> Adopt This Pet</button>
+    <button type="button" class="btn btn-secondary" (click)="goHome()"> Go Back</button>
+
+  </div>
+
+</section>

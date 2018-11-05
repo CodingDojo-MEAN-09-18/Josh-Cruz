@@ -1,0 +1,43 @@
+<div class="container">
+  <a class="home" [routerLink]="['/pets']" style="float: right;"> Home</a>
+  <h1> Pet Shelter </h1>
+  <h2>Know of Pets Who Are Looking For A Home? </h2>
+
+<form id="newPet" #form="ngForm" (submit)="onAddPet(form)" >
+  <div class="help-block" *ngIf="!name.valid && name.touched"> Names are required and must be longer than 3 letters.</div>
+  <div class="form-row">
+    <label for="name" class="label">Your Pet name:</label>
+    <input class="form-control" [ngModel]="nameinput" type="text" name="name" id="name" required minlength="3" #name="ngModel"  >
+  </div>
+  <div class="help-block" *ngIf="!type.valid && type.touched">Pet Types are required and must be longer than 3 letters.</div>
+  <div class="form-row">
+    <label for="type" class="label"> Type of Pet:</label>
+    <input class="form-control" [ngModel]="typeinput" type="text" name="type" id="addtype" required minlength="3" #type="ngModel">
+
+    <br><br>
+  </div>
+  <div class="help-block" *ngIf="!description.valid && description.touched">Pet Description is required and must be longer than 3 letters.</div>
+  <div class="form-row">
+    <label for="skills" class="label">Describe Your Pet:</label>
+    <input class="form-control" [ngModel]="inputdescription" type="text" name="description" id="addDescription" required minlength="3" #description="ngModel">
+    <br><br>
+  </div>
+  <div class="form-row">
+    <label for="skills" class="label">Describe Your Pets Skills:</label>
+    <div class="form-row">
+      <input class="form-control" [ngModel]="formskill1" type="text" name="skill1"  placeholder = "skill 1" >
+    </div>
+    <div class="form-row">
+      <input class="form-control" [ngModel]="formskill2" type="text" name="skill2"  placeholder = "skill 2" >
+    </div>
+    <div class="form-row">
+      <input class="form-control" [ngModel]="formskill3" type="text" name="skill3"  placeholder = "skill 3" >
+    </div>
+    <br><br>
+  </div>
+
+  <button class="btn btn-primary" type="submit" [disabled]="!form.valid" >Add A Pet</button>
+  <button class="btn btn-secondary" type="button" (click)="goHome()">Cancel</button>
+</form>
+
+</div>
