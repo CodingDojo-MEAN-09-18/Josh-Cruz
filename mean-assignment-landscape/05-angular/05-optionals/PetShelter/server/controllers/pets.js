@@ -20,7 +20,7 @@ module.exports = {
       .catch(console.log(res));
   },
   update(req, res) {
-    Pet.findByIdAndUpdate(req.params.id, req.body, { new: true }, { runValidators: true })
+    Pet.findByIdAndUpdate(req.params.id, req.body, { new: true })
       .then(pet => res.json(pet))
       .catch(console.log(res));
   },

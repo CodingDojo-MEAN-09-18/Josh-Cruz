@@ -4,40 +4,42 @@
 <h2>Update new information!</h2>
 
   <form id="newPet" #form="ngForm" (submit)="onUpdatePet(form)">
-    <div class="help-block" *ngIf="!name.valid && name.touched"> Names are required and must be longer than 3 letters.</div>
-    <div class="form-row">
-      <label for="name" class="label">Your Pet name:</label>
-      <input [(ngModel)]="this.selectedPet.name" type="text" name="name" id="name" required minlength="3" #name="ngModel" >
-    </div>
-    <div class="help-block" *ngIf="!type.valid && type.touched">Pet Types are required and must be longer than 3 letters.</div>
-    <div class="form-row">
-      <label for="type" class="label"> Type of Pet:</label>
-      <input [(ngModel)]="this.selectedPet.type" type="text" name="type" id="addtype" required minlength="3" #type="ngModel">
-      <br><br>
-    </div>
-    <div class="help-block" *ngIf="!description.valid && description.touched">Pet Description is required and must be
-      longer than 3 letters.</div>
-    <div class="form-row">
-      <label for="skills" class="label">Describe Your Pet:</label>
-      <input [(ngModel)]="this.selectedPet.description" type="text" name="description" id="addDescription" required minlength="3" #description="ngModel">
-      <br><br>
-    </div>
-    <div class="form-row" id="buttons">
-      <label for="skills" class="label">Describe Your Pets Skills:</label>
+    <div *ngIf="this.selectedPet">
+      <div class="help-block" *ngIf="!name.valid && name.touched"> Names are required and must be longer than 3 letters.</div>
       <div class="form-row">
-      <input [(ngModel)]="this.selectedPet.skills[0].skill" type="text" name="skill1" class="addskill" placeholder="skill 1">
+        <label for="name" class="label">Your Pet name:</label>
+        <input [(ngModel)]="this.selectedPet.name" type="text" name="name" id="addname" required minlength="3" #name="ngModel" >
       </div>
+      <div class="help-block" *ngIf="!type.valid && type.touched">Pet Types are required and must be longer than 3 letters.</div>
       <div class="form-row">
-      <input [(ngModel)]="this.selectedPet.skills[1].skill" type="text" name="skill2" class="addskill" placeholder="skill 2">
+        <label for="type" class="label"> Type of Pet:</label>
+        <input [(ngModel)]="this.selectedPet.type" type="text" name="type" id="addtype" required minlength="3" #type="ngModel">
+        <br><br>
       </div>
+      <div class="help-block" *ngIf="!description.valid && description.touched">Pet Description is required and must be
+        longer than 3 letters.</div>
       <div class="form-row">
-      <input [(ngModel)]="this.selectedPet.skills[2].skill" type="text" name="skill3" class="addskill" placeholder="skill 3">
+        <label for="skills" class="label">Describe Your Pet:</label>
+        <input [(ngModel)]="this.selectedPet.description" type="text" name="description" id="addDescription" required minlength="3" #description="ngModel">
+        <br><br>
       </div>
-      <br><br>
-    </div>
+      <div class="form-row" id="buttons">
+        <label for="skills" class="label">Describe Your Pets Skills:</label>
+        <div class="form-row">
+        <input [(ngModel)]="this.selectedPet.skills[0].skill" type="text" name="skill1" class="addskill" placeholder="skill 1">
+        </div>
+        <div class="form-row">
+        <input [(ngModel)]="this.selectedPet.skills[1].skill" type="text" name="skill2" class="addskill" placeholder="skill 2">
+        </div>
+        <div class="form-row">
+        <input [(ngModel)]="this.selectedPet.skills[2].skill" type="text" name="skill3" class="addskill" placeholder="skill 3">
+        </div>
+        <br><br>
+      </div>
 
-    <button class="btn btn-primary" type="submit" [disabled]="!form.valid" >Update This Pet</button>
-    <button class="btn btn-secondary" type="button" (click)="goHome()">Cancel</button>
+      <button class="btn btn-primary" type="submit" [disabled]="!form.valid" >Update This Pet</button>
+      <button class="btn btn-secondary" type="button" (click)="goHome()">Cancel</button>
+    </div>
   </form>
 
 </div>

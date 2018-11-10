@@ -26,11 +26,12 @@ export class PetService {
   }
 
   updatePet(pet): Observable <Pet> {
+    console.log('made it to update pet with' , pet);
     return this.http.put<Pet>(`/api/pets/${pet._id}`, pet);
   }
 
   findPet(id) {
-    console.log ("id from service", id);
+    console.log ('id from service', id);
     return this.http.get(`/api/pets/${id}`, id);
   }
 
