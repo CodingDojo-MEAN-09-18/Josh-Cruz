@@ -1,0 +1,33 @@
+<div class="container">
+
+  <h2>Add A Product </h2>
+  <!-- <div *ngIf="errors"> -->
+    <div class="alert alert-danger alert-dismissible fade show" *ngFor="let error of errors">
+      <div class="help-block">{{ error }}</div>
+    <!-- </div> -->
+  </div>
+
+
+  <form id="newProduct" #form="ngForm" (submit)="onUpdateProduct(form)">
+    <div *ngIf="this.selectedProduct">
+      <div class="form-row">
+        <label for="name" class="label">Your Product name:</label>
+        <input class="form-control" [(ngModel)]="this.selectedProduct.name" type="text" name="name" id="name" #name="ngModel">
+      </div>
+
+      <div class="form-row">
+        <label for="quantity" class="label"> Quantity of Product:</label>
+        <input class="form-control" [(ngModel)]="this.selectedProduct.quantity" type="text" name="quantity" id="addquantity" #quantity="ngModel">
+      </div>
+
+      <div class="form-row">
+        <label for="skills" class="label">Price Of The Product:</label>
+        <input class="form-control" [(ngModel)]="this.selectedProduct.price" quantity="text" name="price" id="addDescription" #price="ngModel">
+      </div>
+    </div>
+
+    <button class="btn btn-warning" type="submit">Update This Product</button>
+    <button class="btn btn-info" type="button" (click)="goHome()">Cancel</button>
+  </form>
+
+</div>

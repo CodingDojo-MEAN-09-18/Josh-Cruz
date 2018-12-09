@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="dashHeader">
+    <h2 class=" d-inline-flex ">Product List: </h2>
+    <button [routerLink]="['/products/new']" class="btn btn-primary d-inline-flex justify-content-end" id="newproduct" >Add A New Product</button>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-secondary table-striped table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID#:</th>
+          <th scope="col">Name:</th>
+          <th scope="col">QTY:</th>
+          <th scope="col">Price:</th>
+          <th scope="col">Actions:</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let Product of Products">
+        <tr>
+          <th scope="row">{{Product._id }}</th>
+          <td>{{Product.name}}</td>
+          <td>{{Product.quantity}}</td>
+          <td>{{Product.price}}</td>
+          <td>
+            <button class="btn btn-primary"  [routerLink]="['/products', Product._id]">Details</button>
+            <button type="button" class="btn btn-warning" [routerLink]="['/products', Product._id, 'edit']"> Update Product</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

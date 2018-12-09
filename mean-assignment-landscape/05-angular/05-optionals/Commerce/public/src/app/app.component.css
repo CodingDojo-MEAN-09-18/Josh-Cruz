@@ -1,0 +1,50 @@
+#leftimg {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+}
+.container{
+  display:flex;
+  flex-direction: column;
+}
+.container::after{
+background: url("../assets/img/light-grey-terrazzo.png") repeat center;
+content:"";
+opacity: .8;
+  top: 0; bottom: 0; left: 0; right: 0;
+  position: fixed;
+  z-index: -1;
+
+}
+.logo{
+
+  display:flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-self: center;
+
+
+}
+
+.logo:hover{
+  cursor: pointer;
+}
+
+.logo > img {
+  width:21.5em;
+}
+
+h1{
+  font-size: 3em;
+  font-weight: bold;
+  margin-top: -1.34em;
+  margin-left: 2em;
+}
+
+.nav-item{
+  font-size: 1.25em;
+}

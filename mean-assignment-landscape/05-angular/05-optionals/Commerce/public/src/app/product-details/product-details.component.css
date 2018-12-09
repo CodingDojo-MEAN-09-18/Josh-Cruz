@@ -1,0 +1,20 @@
+*{
+  margin: 1em;
+
+}
+
+h1{
+  font-weight: bold;
+
+}
+
+.label
+{
+  margin:.25em;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+p{
+  font-size: 1.25em;
+}

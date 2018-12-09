@@ -1,0 +1,33 @@
+<div class="container">
+
+  <h2>Add A Product </h2>
+  <div class="alert alert-danger alert-dismissible fade show" *ngFor="let error of errors">
+  <div class="help-block">{{ error }}</div>
+  </div>
+
+  <form id="newProduct" #form="ngForm" (submit)="onAddProduct(form)">
+    <!-- <div class="help-block" *ngIf="!name.valid && name.touched"> Product names are required and must be longer than 3 letters.</div> -->
+    <div class="form-row">
+      <label for="name" class="label">Your Product name:</label>
+      <input class="form-control" [ngModel]="nameinput" type="text" name="name" id="name"  #name="ngModel">
+    </div>
+    <!-- <div class="help-block" *ngIf="!type.valid && type.touched">Product quantity is required and must be longer than 3
+      letters.</div> -->
+    <div class="form-row">
+      <label for="quantity" class="label"> Quantity of Product:</label>
+      <input class="form-control" [ngModel]="quantityinput" type="text" name="quantity" id="addquantity"
+        #quantity="ngModel" >
+    </div>
+    <!-- <div class="help-block" *ngIf="!price.valid && description.touched">Product Description is required and must be
+      longer than 3 letters.</div> -->
+    <div class="form-row">
+      <label for="skills" class="label">Price Of The Product:</label>
+      <input class="form-control" [ngModel]="inputprice" quantity="text" name="price" id="addDescription"
+        #price="ngModel">
+    </div>
+
+    <button class="btn btn-primary" type="submit" >Add A Product</button>
+    <button class="btn btn-secondary" type="button" (click)="goHome()">Cancel</button>
+  </form>
+
+</div>
